@@ -1,28 +1,3 @@
-# BoardgameListingWebApp
-
-## Description
-
-**Board Game Database Full-Stack Web Application.**
-This web application displays lists of board games and their reviews. While anyone can view the board game lists and reviews, they are required to log in to add/ edit the board games and their reviews. The 'users' have the authority to add board games to the list and add reviews, and the 'managers' have the authority to edit/ delete the reviews on top of the authorities of users.  
-
-## Technologies
-
-- Java
-- Spring Boot
-- Amazon Web Services(AWS) EC2
-- Thymeleaf
-- Thymeleaf Fragments
-- HTML5
-- CSS
-- JavaScript
-- Spring MVC
-- JDBC
-- H2 Database Engine (In-memory)
-- JUnit test framework
-- Spring Security
-- Twitter Bootstrap
-- Maven
-
 ## Features
 
 - Full-Stack Application
@@ -41,13 +16,39 @@ This web application displays lists of board games and their reviews. While anyo
 - CRUD (Create, Read, Update, Delete) operations for managing data in the database
 - Schema.sql file to customize the schema and input initial data
 - Thymeleaf Fragments to reduce redundancy of repeating HTML elements (head, footer, navigation)
+# DevOps Ultimate Kubernetes Pipeline
 
-## How to Run
+**One-liner summary:**  
+A Kubernetes cluster deployed on three VMs (1 master, 2 workers), featuring Jenkins, SonarQube, and Nexus integrated for  CI/CD pipeline.
 
-1. Clone the repository
-2. Open the project in your IDE of choice
-3. Run the application
-4. To use initial user data, use the following credentials.
-  - username: bugs    |     password: bunny (user role)
-  - username: daffy   |     password: duck  (manager role)
-5. You can also sign-up as a new user and customize your role to play with the application! 😊
+
+##  Architecture
+
+The project architecture includes:
+
+- **Three Virtual Machines (VMs)**:
+  - **Master Node**: Controls the Kubernetes cluster
+  - **Worker Node 1 & 2**: Runs workloads and Services
+
+- **Key Services deployed**:
+  - **Jenkins**: For automated pipelines and builds
+  - **SonarQube**: For code quality checks and static analysis
+  - **Nexus**: Artifact repository for versioned binaries and Docker images
+
+---
+
+##  Infrastructure Setup
+
+1. Provision three Virtual Machines (using AWS EC2):
+   - VM-1: Kubernetes Master
+   - VM-2 / VM-3: Kubernetes Worker Nodes
+
+2. Install and configure **Kubernetes** on all:
+   - Initialize the cluster on master
+   - Join workers to the cluster
+
+3. Verify cluster health:
+   ```bash
+   kubectl get nodes
+   kubectl get pods --all-namespaces
+
